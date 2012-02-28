@@ -125,9 +125,6 @@ class ClientTransport(object):
     def on_close(self, sock):
         if sock in self._sockets:
             self._sockets.remove(sock)
-        else:
-            # Tornado does not have on_connect_failed event.
-            self.on_connect_failed(sock)
 
 
 class ServerSocket(BaseSocket):
